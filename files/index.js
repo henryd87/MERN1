@@ -1,10 +1,15 @@
 const fsPromises = require('fs').promises;
 //I dont really know what the fs.promises does
 const path = require('path');
-fs.readFile(path.join('../files','starter.txt'), 'utf8',(err,data)=>{
-    if (err) throw err;
-    console.log(data);
-}) 
+const fileOps= async () =>{
+    try{
+        const data = await fsPromises.readFile(path.join('../files','starter.txt'),'utf8');
+        console.log(data);
+    }catch(err){
+        console.log(err);
+    }
+}
+fileOps();
 /*
 fs.writeFile(path.join('../files','reply.txt'), 'Nice to meet you', (err)=>{
     if (err) throw err;
@@ -31,3 +36,4 @@ process.on('uncaughtException', err=>{
     console.error(`There was an uncuaght error: ${err}`);
     process.exit(1);
 }) */
+
