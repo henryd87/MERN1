@@ -35,16 +35,12 @@ fs.writeFile(path.join('../files','reply.txt'), 'Nice to meet you', (err)=>{
         console.log("Rename complete");
     }) 
 }) 
-
 fs.appendFile(path.join('../files','test.txt'), 'Testing', (err)=>{
     if (err) throw err;
     console.log("Append complete");
 }) 
 //Will create a file if it doesn't exist (append).
-
-
 process.on('uncaughtException', err=>{
     console.error(`There was an uncuaght error: ${err}`);
     process.exit(1);
 }) */
-
