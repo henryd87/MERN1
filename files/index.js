@@ -5,6 +5,17 @@ const fileOps= async () =>{
     try{
         const data = await fsPromises.readFile(path.join('../files','starter.txt'),'utf8');
         console.log(data);
+        //Delete file
+        await fsPromises.unlink(path.join('../files','starter.txt'));
+        await fsPromises.writeFile(path.join('../files','promiseWrite.txt'), data);
+        //Writing to a non existent file creates the file
+        await fsPromises.appendFile(path.join('../files','promiseWrite.txt'), '\nAppended item');
+        //Appending an item to file
+        await fsPromises.rename(path.join('../files','promiseWrite.txt'), path.join('../files','promiseComplete.txt'));
+        //Renaming entirely
+        //Now we are reading new data from promise complete
+        const newData = await fsPromises.readFile(path.join('../files','promiseComplete.txt'),'utf8');
+        console.log(newData);
     }catch(err){
         console.log(err);
     }
