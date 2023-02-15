@@ -3,18 +3,18 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 const fileOps= async () =>{
     try{
-        const data = await fsPromises.readFile(path.join('../files','starter.txt'),'utf8');
+        const data = await fsPromises.readFile(path.join('../episode2NodeJsFiles','starter.txt'),'utf8');
         console.log(data);
         //Delete file
-        await fsPromises.unlink(path.join('../files','starter.txt'));
-        await fsPromises.writeFile(path.join('../files','promiseWrite.txt'), data);
+        await fsPromises.unlink(path.join('../episode2NodeJsFiles','starter.txt'));
+        await fsPromises.writeFile(path.join('../episode2NodeJsFiles','promiseWrite.txt'), data);
         //Writing to a non existent file creates the file
-        await fsPromises.appendFile(path.join('../files','promiseWrite.txt'), '\nAppended item');
+        await fsPromises.appendFile(path.join('../episode2NodeJsFiles','promiseWrite.txt'), '\nAppended item');
         //Appending an item to file
-        await fsPromises.rename(path.join('../files','promiseWrite.txt'), path.join('../files','promiseComplete.txt'));
+        await fsPromises.rename(path.join('../episode2NodeJsFiles','promiseWrite.txt'), path.join('../episode2NodeJsFiles','promiseComplete.txt'));
         //Renaming entirely
         //Now we are reading new data from promise complete
-        const newData = await fsPromises.readFile(path.join('../files','promiseComplete.txt'),'utf8');
+        const newData = await fsPromises.readFile(path.join('../episode2NodeJsFiles','promiseComplete.txt'),'utf8');
         console.log(newData);
     }catch(err){
         console.log(err);

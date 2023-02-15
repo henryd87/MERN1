@@ -2,9 +2,9 @@
 //More easy on the application
 const fs = require('fs');
 
-const rs = fs.createReadStream('../files/lorem.txt',{encoding:'utf8'});
+const rs = fs.createReadStream('../episode2NodeJsFiles/lorem.txt',{encoding:'utf8'});
 
-const ws = fs.createWriteStream('../files/new-lorem.txt');
+const ws = fs.createWriteStream('../episode2NodeJsFiles/new-lorem.txt');
 
 /*rs.on('data',(dataChunk)=>{
     ws.write(dataChunk);
