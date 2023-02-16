@@ -8,20 +8,32 @@ const EventEmitter = require('events');
 class Emitter extends EventEmitter{}
 
 const myEmitter = new Emitter();
+myEmitter.on('log',(msg,fileName)=> logEvents(msg,fileName));
 const PORT = process.env.PORT || 3500
-const serveFile=async (filePath,contentTypr,response)=>{
+const serveFile=async (filePath,contentType,response)=>{
     try{
-        const data = await fsPromises.readFile(filePath,'utf8');
-        response.writeHead(200,{'Content-Type':contentTypr});
-        response.end(data);
+        const rawData = await fsPromises.readFile(
+            filePath,
+            !contentType.includes('image') ? 'utf8': ''
+            );
+        const data = contentType === 'application/json'
+        ? JSON.parse(rawData) : rawData;
+        response.writeHead(
+            filePath.includes('404.html') ? 404 : 200,
+            {'Content-Type':contentType});
+        response.end(
+            contentType === 'application/json' ? JSON.stringify(data) : data
+        );
     }catch(err){
         console.log(err);
+        myEmitter.emit('log',`${err.name}: ${err.message}`,`errLog.txt`);
         response.statusCode=500;
         response.end()
     }
 }
 const server =http.createServer((req,res)=>{
     console.log(req.url,req.method);
+    myEmitter.emit('log',`${req.url}\t${req.method}`,`reqLog.txt`);
     const extension = path.extname(req.url);
     let contentType;
     switch (extension) {
@@ -36,7 +48,7 @@ const server =http.createServer((req,res)=>{
         case '.json':
             contentType = 'application/json';
             break;
-        case '.jpg':
+        case '.jpeg':
             contentType = 'image/jpeg';
             break;
         case '.png':
@@ -91,11 +103,6 @@ const server =http.createServer((req,res)=>{
 
 });
 server.listen(PORT,()=>console.log(`Server running on port ${PORT}`));
-
-/*myEmitter.on('log',(msg)=> logEvents(msg));
-
-    myEmitter.emit('log','log event emitted!');
-*/
 
 //npm run dev to start nodemon and application. !!
 //Control C to exit the node area
