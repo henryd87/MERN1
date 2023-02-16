@@ -1,14 +1,22 @@
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
+const fsPromises = require('fs').promises
 const logEvents = require('./logEvents')
-//Common core module below
+
 const EventEmitter = require('events');
-class MyEmitter extends EventEmitter{}
-//initalized object
-const myEmitter = new MyEmitter();
-//add listener for log event
-//The .on means it can listen
-myEmitter.on('log',(msg)=> logEvents(msg));
-setTimeout(()=>{
+class Emitter extends EventEmitter{}
+
+const myEmitter = new Emitter();
+const PORT = process.env.PORT || 3500
+const server =http.createServer((req,res)=>{
+    console.log(req.url,req.method);
+});
+server.listen(PORT,()=>console.log(`Server running on port ${PORT}`));
+
+/*myEmitter.on('log',(msg)=> logEvents(msg));
+
     myEmitter.emit('log','log event emitted!');
-}, 2000)
+*/
 
 //npm run dev to start nodemon and application.
