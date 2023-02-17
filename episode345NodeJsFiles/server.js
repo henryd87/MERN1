@@ -8,6 +8,7 @@ const EventEmitter = require('events');
 class Emitter extends EventEmitter{}
 
 const myEmitter = new Emitter();
+//.on means listening
 myEmitter.on('log',(msg,fileName)=> logEvents(msg,fileName));
 const PORT = process.env.PORT || 3500
 const serveFile=async (filePath,contentType,response)=>{
