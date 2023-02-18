@@ -2,6 +2,17 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3500
+//works as a waterfall
+
+app.use(express.urlencoded({extended:false}));
+//.use to apply middleware, for handling url encoded data like form data
+
+//middleware for JSOn
+app.use(express.json());
+
+//serve static files
+app.use(express.static(path.join(__dirname,'/public')));
+
 //Below, app is now our server and asks for an HTTP request 'get', it looks 
 //for the root folder '/' and asks for a function of what to do
 app.get('^/$|/index(.html)?',(req,res)=>{
