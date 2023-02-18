@@ -1,0 +1,4 @@
+20230218	17:42:22	fa04b3f2-cc90-4817-a017-2c0efdf8133d	undefined	undefined	/
+20230218	17:42:22	a6308c98-2b92-4234-803f-28cab2504772	undefined	undefined	/css/style.css
+20230218	17:43:26	093e59e0-c658-469e-bca2-e5d8006c5093	GET	undefined	/
+20230218	17:43:27	463efa0f-0d22-4dce-ac07-ae379c46f1b3	GET	undefined	/css/style.css

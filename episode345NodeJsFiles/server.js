@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const {logger} = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500
 //works as a waterfall
+
+//custom middleware logger
+app.use(logger);
 
 app.use(express.urlencoded({extended:false}));
 //.use to apply middleware, for handling url encoded data like form data
@@ -10,7 +14,7 @@ app.use(express.urlencoded({extended:false}));
 //middleware for JSOn
 app.use(express.json());
 
-//serve static files
+//serve static files, also allows for css to enter from the public folder
 app.use(express.static(path.join(__dirname,'/public')));
 
 //Below, app is now our server and asks for an HTTP request 'get', it looks 
