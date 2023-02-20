@@ -35,34 +35,14 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 //serve static files, also allows for css to enter from the public folder
-app.use(express.static(path.join(__dirname,'/public')));
+app.use('/',express.static(path.join(__dirname,'/public')));
+app.use('/subdir',express.static(path.join(__dirname,'/public')));
 
-//Below, app is now our server and asks for an HTTP request 'get', it looks 
-//for the root folder '/' and asks for a function of what to do
-app.get('^/$|/index(.html)?',(req,res)=>{
-    //or res.sendFile('./views/index.html',{root:__dirname}});
-    res.sendFile(path.join(__dirname,'views','index.html'));
-})
-//npm run dev to start the server
-//The ^ means it must begin, $ means must end and (.html)? means optional
-app.get('^/$|/new-page(.html)?',(req,res)=>{
-    res.sendFile(path.join(__dirname,'views','new-page.html'));
-})
+app.use('/',require('./routes/root'));
+app.use('/subdir',require('./routes/subdir'));
+//for any requests going to the subdir folder, will be transferred 
+//to the routes folder's version of subdirectory where routes are stored.
 
-app.get('/old-page(.html)?',(req,res)=>{
-    res.redirect(301, '/new-page.html'); //302 by default,
-    //putting 301 will indicate the the request has been permanently moved.
-    //302 is temporarily moved
-})
-
-app.get('/hello(.html)?',(req,res,next)=>{
-    console.log("attempted to load hello.html");
-    //logs to the rterminal
-    next();
-    //next() moves us to the next argument
-},(req,res)=>{
-    res.send('hello world!');
-})
 
 //___________________________
 //This is a good example of route handling. These are all functions
