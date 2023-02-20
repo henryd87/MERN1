@@ -41,3 +41,12 @@
 20230220	01:24:40	2b4fd4e0-7986-4bff-a856-8d628a922b9d	GET	undefined	/css/style.css
 20230220	01:25:27	8a29704b-3e7a-4c4c-b86c-e8f19190d2ff	GET	undefined	/subDir/no
 20230220	01:25:27	bc206b8c-4c6e-44c0-9dd3-fecac8bfca75	GET	undefined	/css/style.css
+20230220	01:36:34	74687096-7f9f-48b0-a3b4-31bb080eea0e	GET	undefined	/new-page.html
+20230220	01:36:34	34045850-0833-4b7c-ab65-3ecf5dd0539f	GET	undefined	/img/img1.jpeg
+20230220	01:36:34	3ffdfe6a-3baf-4b09-ac68-b28c88757834	GET	undefined	/css/style.css
+20230220	01:52:53	e7dc9f8e-47c1-400d-9051-4890ec8be7eb	GET	undefined	/employees
+20230220	01:53:50	e47781b2-6bdc-4999-a100-884d6237bcf4	GET	undefined	/employees
+20230220	01:54:15	1080c7e9-db92-4669-971f-035b839caf2a	POST	undefined	/employees
+20230220	01:54:46	f99e00bd-70d7-4a8a-ae0c-b37672140810	POST	undefined	/employees?Hey=Girl
+20230220	01:55:11	4285ac1b-9534-4ef5-86fa-535c1c017860	POST	undefined	/employees
+20230220	01:57:00	a44d6cd9-e18d-43ed-96cd-067356c1dfd2	POST	undefined	/employees
