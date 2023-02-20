@@ -50,3 +50,5 @@
 20230220	01:54:46	f99e00bd-70d7-4a8a-ae0c-b37672140810	POST	undefined	/employees?Hey=Girl
 20230220	01:55:11	4285ac1b-9534-4ef5-86fa-535c1c017860	POST	undefined	/employees
 20230220	01:57:00	a44d6cd9-e18d-43ed-96cd-067356c1dfd2	POST	undefined	/employees
+20230220	18:24:24	5271107b-5e97-4105-98f0-3bcb86d0f843	GET	undefined	/employees
+20230220	18:29:02	7bc64b9a-9178-4c64-8762-075516b83a96	POST	undefined	/employees
