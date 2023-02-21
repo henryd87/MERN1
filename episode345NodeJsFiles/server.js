@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3500
 
 //custom middleware logger
 app.use(logger);
-
+//j
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({extended:false}));
