@@ -5,3 +5,4 @@
 20230220	01:21:26	08e6f366-b86f-43ba-b48e-ce1d280cdb04	Error: ENOENT: no such file or directory, stat '/workspaces/MERN1/episode345NodeJsFiles/views/subdir/index.html'
 20230220	01:21:37	66235f00-4ec1-4b64-8a5b-89c047b347ab	Error: ENOENT: no such file or directory, stat '/workspaces/MERN1/episode345NodeJsFiles/views/subdir/index.html'
 20230220	01:22:21	5d37edcc-ff25-47b1-9778-13043fa960c9	Error: ENOENT: no such file or directory, stat '/workspaces/MERN1/episode345NodeJsFiles/views/subdir/index.html'
+20230224	17:53:41	6e2f9ade-21e8-4f7e-a117-e2ab2fe61fa3	TypeError: res.sendStatuse is not a function
