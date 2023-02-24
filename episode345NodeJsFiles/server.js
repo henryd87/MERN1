@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3500
 //works as a waterfall
 
 //custom middleware logger
-app.use(logger);
+app.use(logger); //e
 //j
 app.use(cors(corsOptions));
 
